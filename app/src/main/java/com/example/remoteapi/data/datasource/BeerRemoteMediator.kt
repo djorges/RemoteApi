@@ -9,6 +9,7 @@ import com.example.remoteapi.data.api.BeerService
 import com.example.remoteapi.data.db.MainDatabase
 import com.example.remoteapi.data.dto.toBeerEntity
 import com.example.remoteapi.data.entity.BeerEntity
+import kotlinx.coroutines.delay
 import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
@@ -46,6 +47,8 @@ class BeerRemoteMediator @Inject constructor(
                     }
                 }
             }
+
+            delay(2000L)
             //Call API
             val beersDTO = beerService.getBeers( page = loadKey, pageCount = state.config.pageSize)
 

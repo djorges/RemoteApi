@@ -9,7 +9,7 @@ fun BeerEntity.toBeer(): Beer {
         name = name,
         tagline = tagline,
         description = description,
-        first_brewed = first_brewed,
-        image_url = image_url
+        firstBrewed = first_brewed,
+        imageUrl = image_url
     )
 }

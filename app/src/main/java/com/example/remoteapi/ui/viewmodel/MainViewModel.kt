@@ -15,6 +15,13 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(): ViewModel(){
+class MainViewModel @Inject constructor(
+    pager: Pager<Int, BeerEntity>
+): ViewModel(){
+    val beerPagingFlow = pager
+        .flow
+        .map { pagingData->
+            pagingData.map { it.toBeer() }
+        }
+        .cachedIn(viewModelScope)
 }
-
